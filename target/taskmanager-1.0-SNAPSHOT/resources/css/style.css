@@ -1,0 +1,63 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    margin: 0 auto;
+}
+
+#header {
+    height: 60px;
+    background-color: #56717D;
+}
+
+#headertitle {
+    color: white;
+    font-family: "Roboto Thin", sans-serif;
+    text-align: center;
+}
+
+#headertitle h1{
+    font-size: 18px;
+    padding-top: 7px;
+
+}
+
+#headertitle h2 {
+    font-size: 14px;
+}
+
+#main {
+    font-family: "Roboto Thin", sans-serif;
+}
+
+#main h3 {
+    text-align: center;
+    padding: 20px
+}
+
+.ui-splitbutton {
+    margin-right: .5rem;
+}
+.btnregister {
+    margin-left: 35%;
+    width: 30%;
+}
+#contentform {
+    margin: 0 auto;
+}
+
+#footer {
+    bottom:0;
+    height: 60px;
+    background-color: #56717D;
+}
+
+#footer p {
+    color: white;
+    text-align: center;
+    font-family: 'Roboto Light', sans-serif;
+    font-size: 12px;
+    padding-top: 20px;
+}

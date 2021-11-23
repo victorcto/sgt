@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+    <title>Gerenciador de Tarefas</title>
+</h:head>
+<h:body>
+    <div id="header">
+        <div id="headertitle">
+            <h1>Gerenciador de Tarefas</h1>
+            <h2>Recrutamento - Desenvolvimento Estágio Java Web</h2>
+        </div>
+    </div>
+    <div id="main" class="ui-g">
+        <div id="contentform" class="ui-g-12">
+            <div class="ui-g-6">
+                <h3>Cadastrar Tarefa</h3>
+                <div class="ui-g-12">
+                    <h:form id="formulario">
+                        <p:messages id="messages" showDetail="true" closable="true">
+                            <p:autoUpdate/>
+                        </p:messages>
+                        <div class="ui-fluid">
+                            <div class="ui-g-12">
+                                <h:outputLabel for="title" value="Título: " />
+                                <p:inputText id="title" value="#{registerController.task.title}" label="Título" required="true"/>
+                            </div>
+                            <div class="ui-g-12">
+                                <h:outputLabel for="description" value="Descrição: " />
+                                <p:inputTextarea id="description" value="#{registerController.task.description}" label="Descrição" />
+                            </div>
+                            <div class="ui-g-6">
+                                <h:outputLabel for="sponsor" value="Responsável: "/>
+                                <p:selectOneMenu id="sponsor" required="true" value="#{registerController.task.manager}" label="Responsável">
+                                    <f:selectItem itemLabel="Selecione o responsável" itemValue="" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Maria" itemValue="Maria"/>
+                                    <f:selectItem itemLabel="João" itemValue="João"/>
+                                    <f:selectItem itemLabel="José" itemValue="José"/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="ui-g-6">
+                                <h:outputLabel for="priority" value="Prioridade: " />
+                                <p:selectOneMenu id="priority" required="true" value="#{registerController.task.priority}" label="Prioridade">
+                                    <f:selectItem itemLabel="Selecione a prioridade" itemValue="" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Alta" itemValue="alta"/>
+                                    <f:selectItem itemLabel="Média" itemValue="media"/>
+                                    <f:selectItem itemLabel="Baixa" itemValue="baixa"/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="ui-g-6">
+                                <p:outputLabel for="deadline" value="Deadline: "/>
+                                <p:inputMask id="deadline" value="#{registerController.task.deadline}" mask="99/99/9999" />
+                            </div>
+                            <div class="ui-g-6"></div>
+                            <div class="ui-g-6 btnregister">
+                                <p:commandButton value="Cadastrar tarefa" action="#{registerController.add}" update="formulario tabela" styleClass="rounded-button ui-button-secondary"/>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+            <div class="ui-g-6">
+                <h3>Filtrar Tarefa</h3>
+                <div class="ui-g-12">
+                    <h:form id="searchform">
+                        <div class="ui-fluid">
+                            <div class="ui-g-12">
+                                <h:outputLabel for="id2" value="Número: " />
+                                <p:inputText id="id2" value="" label="Título"/>
+                            </div>
+                            <div class="ui-g-12">
+                                <h:outputLabel for="titulo2" value="Título/Descrição: " />
+                                <p:inputTextarea id="titulo2" value="" label="Título/Descrição" />
+                            </div>
+                            <div class="ui-g-6">
+                                <h:outputLabel for="sponsor2" value="Responsável: " />
+                                <p:selectOneMenu id="sponsor2" label="Responsável">
+                                    <f:selectItem itemLabel="Selecione o responsável" itemValue="" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Maria" itemValue="Maria"/>
+                                    <f:selectItem itemLabel="João" itemValue="João"/>
+                                    <f:selectItem itemLabel="José" itemValue="José"/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="ui-g-6">
+                                <h:outputLabel for="situation" value="Situação: " />
+                                <p:selectOneMenu id="situation">
+                                    <f:selectItem itemLabel="Selecione a situação" itemValue="" noSelectionOption="true"/>
+                                    <f:selectItem itemLabel="Em andamento" itemValue="em andamento"/>
+                                    <f:selectItem itemLabel="Concluída" itemValue="concluida"/>
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="ui-g-6">
+                                <br/>
+                                <br/>
+                                <br/>
+                            </div>
+                            <div class="ui-g-6 btnregister">
+                                <p:commandButton type="button" value="Buscar tarefa" styleClass="rounded-button ui-button-secondary"/>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div class="ui-g-12"></div>
+        <div id="contentlist" class="ui-g-12">
+            <h3>Lista de tarefas</h3>
+            <h:form id="tabela">
+                <p:dataTable rows="5" var="t" value="#{registerController.tasks}" paginator="true" paginatorPosition="bottom">
+                    <p:column headerText="Número" >
+                        <h:outputText value="#{t.id}" />
+                    </p:column>
+
+                    <p:column headerText="Título">
+                        <h:outputText value="#{t.title}" />
+                    </p:column>
+
+                    <p:column headerText="Responsável">
+                        <h:outputText value="#{t.manager}" />
+                    </p:column>
+
+                    <p:column headerText="Ações">
+                        <p:splitButton action="#{registerController.complete}" value="Concluir" icon="pi pi-check" update="tabela" process="@this" styleClass="ui-button-secondary">
+                            <f:setPropertyActionListener value="#{t}" target="#{registerController.task}"/>
+                            <p:menuitem value="Editar" update="formulario" process="@this" icon="pi pi-refresh">
+                                <f:setPropertyActionListener value="#{t}" target="#{registerController.task}"/>
+                            </p:menuitem>
+                            <p:menuitem action="#{registerController.remove}" value="Excluir" update="tabela" process="@this" icon="pi pi-trash">
+                                <f:setPropertyActionListener value="#{t}" target="#{registerController.task}" />
+                            </p:menuitem>
+                        </p:splitButton>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>ESIG Group - Dev Victor Couto © 2021</p>
+    </div>
+
+</h:body>
+</html>
