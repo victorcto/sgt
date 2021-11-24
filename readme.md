@@ -41,5 +41,6 @@
 ### Executando a aplicação
 1. Baixe o repósitorio
 2. Abra o projeto na IDE e configure o tomcat usando esse tutorial: https://mkyong.com/intellij/intellij-idea-run-debug-web-application-on-tomcat/
-3. Clique em Run/Debug.
-4. http://localhost:8080/taskmanager_war_exploded/
+3. Crie um Database com o nome 'dbTasks', com usuário 'postgres' e senha 'pg123pg', para tal use este tutorial https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04
+4. Clique em Run/Debug.
+5. http://localhost:8080/taskmanager_war_exploded/
