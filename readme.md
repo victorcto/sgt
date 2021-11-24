@@ -15,6 +15,7 @@
   export PATH=$PATH:$JAVA_HOME/bin
   ```
   OBS: para as variáveis de ambientes deixar de serem temporárias adicione as duas últimas linhas ao arquivo de conf do seu shell (ex: nano ~/.zshrc -> cola as variáveis nesse arquivo).
+  
   ---
 - Tomcat 9
   1. Baixe o Tomcat 9: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.55/bin/apache-tomcat-9.0.55.tar.gz
@@ -23,6 +24,7 @@
   sudo tar xvzf arquivo.tar.gz -C /opt/
   ```
   Para uma instalação mais completa acesse: https://www.digitalocean.com/community/tutorials/install-tomcat-9-ubuntu-1804
+  
   ---
 - Postgresql 12
   1. Abra o terminal e digite
@@ -31,6 +33,7 @@
   sudo apt install postgresql postgresql-contrib
   ```
   Para uma instalação mais completa acesse: https://linuxhint.com/install_postgresql_-ubuntu/
+  
   ---
 - IDE Intellij
   1. Baixe em: https://www.jetbrains.com/idea/download/#section=linux
