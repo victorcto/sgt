@@ -1,5 +1,7 @@
 # Task Manager
 ## Atividade técnica de estágio - Desenvolvimento Java Web
+Nesta atividade desenvolvi uma aplicação web com Java que funciona como um gerenciador de tarefas. Nessa aplicação utlizei a especificação JSF (item a) para construir as interfaces juntamente com a biblioteca Primefaces (item f) e, também, fiz uso da persistência em banco de dados PostgreSQL (item b) com JPA (item c).
+O gerenciador de tarefas (Task Manager) é uma aplicação com aparência amigável que ajuda no planejamento de tarefas no dia a dia, na qual você é capaz de adicionar novas tarefas, editar tarefas e excluir tarefas. 
 ### Requisitos
  - JDK 11
  - Tomcat 9
